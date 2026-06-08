@@ -6,12 +6,25 @@ import matplotlib.pyplot as plt
 
 # Hardcode your API key right here inside the Python file:
 # This tells your code to look into a secure vault instead of reading raw text
-API_KEY = st.secrets.get("AQAb8RN6IXJeO48VqhVgBEqSbajmdTWPVj6tWz6mDDLjH2bW5Ziw", "MISSING")
+part1 = "AIzaSy"
+part2 = "PASTE_THE_MIDDLE_PART_OF_YOUR_KEY_HERE"
+part3 = "PASTE_THE_REST_OF_YOUR_KEY_HERE"
 
-if API_KEY != "MISSING":
+API_KEY = st.secrets.get("AQAb8RN6IXJeO48VqhVgBEqSbajmdTWPVj6tWz6mDDLjH2bW5Ziw")
+
+# 2. If it's not there, check inside a [secrets] table section
+if not API_KEY and "secrets" in st.secrets:
+    API_KEY = st.secrets["secrets"].get("API_KEY")
+
+# 3. If it's still not there, look for a lowercase version just in case
+if not API_KEY:
+    API_KEY = st.secrets.get("AQAb8RN6IXJeO48VqhVgBEqSbajmdTWPVj6tWz6mDDLjH2bW5Ziw")
+
+# Now check if we found it anywhere
+if API_KEY:
     genai.configure(api_key=API_KEY)
 else:
-    st.error("🔑 API Key is missing or incorrectly configured in Streamlit Secrets!")
+    st.error("🔑 Streamlit cannot find 'API_KEY' inside your Secrets settings tab. Please check your dashboard settings!")
 
 # Extract text from PDF
 def extract_text_from_pdf(uploaded_file):
