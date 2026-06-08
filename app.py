@@ -6,8 +6,12 @@ import matplotlib.pyplot as plt
 
 # Hardcode your API key right here inside the Python file:
 # This tells your code to look into a secure vault instead of reading raw text
-API_KEY = st.secrets["AQ.Ab8RN6IpfKH12dRfCMakW6qG51QQnXF1Rq4Hwth28ytuHKkWKg"]
-genai.configure(api_key=API_KEY)
+API_KEY = st.secrets.get("AQ.Ab8RN6IpfKH12dRfCMakW6qG51QQnXF1Rq4Hwth28ytuHKkWKg", "MISSING")
+
+if API_KEY != "MISSING":
+    genai.configure(api_key=API_KEY)
+else:
+    st.error("🔑 API Key is missing or incorrectly configured in Streamlit Secrets!")
 
 # Extract text from PDF
 def extract_text_from_pdf(uploaded_file):
