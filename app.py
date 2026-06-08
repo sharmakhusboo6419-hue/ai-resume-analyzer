@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 # Hardcode your API key right here inside the Python file:
 # This tells your code to look into a secure vault instead of reading raw text
-API_KEY = st.secrets.get("AQ.Ab8RN6IpfKH12dRfCMakW6qG51QQnXF1Rq4Hwth28ytuHKkWKg", "MISSING")
+API_KEY = st.secrets.get("AQAb8RN6IXJeO48VqhVgBEqSbajmdTWPVj6tWz6mDDLjH2bW5Ziw", "MISSING")
 
 if API_KEY != "MISSING":
     genai.configure(api_key=API_KEY)
