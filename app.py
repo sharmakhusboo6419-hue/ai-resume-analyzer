@@ -67,9 +67,12 @@ def ats_score(resume_text, keywords):
     return matched, skills_score, experience_score, education_score, formatting_score, final_score
 
 # AI analysis using Gemini
+# Inside analyze_resume function:
 def analyze_resume(resume_text, target_role):
-    model = genai.GenerativeModel('gemini-2.5-flash')
-    
+    # Explicitly using the full identifier 'models/gemini-2.5-flash'
+    model = genai.GenerativeModel('models/gemini-2.5-flash')
+    ...
+
     prompt = f"""
     Analyze this resume for the role of {target_role}. 
     Provide feedback on strengths, gaps, and recommendations.
@@ -90,8 +93,11 @@ def analyze_resume(resume_text, target_role):
     return response.text
 
 # AI Bullet Point Rewriter
+# Inside rewrite_bullet_point function:
 def rewrite_bullet_point(bullet_text, role):
-    model = genai.GenerativeModel('gemini-2.5-flash')
+    # Explicitly using the full identifier 'models/gemini-2.5-flash'
+    model = genai.GenerativeModel('models/gemini-2.5-flash')
+    ...
     prompt = f"""
     You are an expert resume writer. Rewrite the following weak resume bullet point to make it sound highly professional, action-oriented, and impactful for a '{role}' position.
     Use strong action verbs and create placeholders for metrics/numbers (e.g., [X]% or $[X]).
