@@ -7,23 +7,28 @@ import matplotlib.pyplot as plt
 # ==========================================
 # 🔒 SECURE API KEY CONFIGURATION (SPLIT METHOD)
 # ==========================================
-part1 = "AQAb8R"
-part2 = "N6IXJeO48VqhVgBE"  # Put your keys back into these parts
-part3 = "EqSbajmdTWPVj6tWz6mDDLjH2bW5Ziw"
+# ==========================================
+# 🔒 SECURE API KEY CONFIGURATION (SPLIT METHOD)
+# ==========================================
+# Put the first few characters of your real key here
+part1 = "AQAb8R"  
+# Put the middle part here
+part2 = "N6IXJeO" 
+# Put the remaining part here
+part3 = "48VqhVgBEqSbajmdTWPVj6tWz6mDDLjH2bW5Ziw"
 
 # The .strip() function wipes out any accidental hidden spaces or line breaks
 FULL_API_KEY = (part1 + part2 + part3).strip()
 
-# Advanced verification check
-if FULL_API_KEY and FULL_API_KEY.startswith("AQAb8R") and len(FULL_API_KEY) >= 39:
+# Flexible verification check: validates length without hardcoding the prefix
+if FULL_API_KEY and len(FULL_API_KEY) >= 35:
     try:
         genai.configure(api_key=FULL_API_KEY)
         st.toast("🔒 Gemini API Connection Secured Successfully!", icon="✅")
     except Exception as e:
         st.error(f"❌ Initialization Failed: Please check your API key structure. Error: {e}")
 else:
-    st.error("⚠️ Invalid Key Configuration: Ensure your split strings form a complete 39-character Gemini API key starting with 'AIzaSy'!")
-
+    st.error("⚠️ Invalid Key Configuration: Ensure your split strings form a complete, valid API key!")
 # ==========================================
 # 🛠️ CORE FUNCTIONS
 # ==========================================
