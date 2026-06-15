@@ -11,7 +11,8 @@ part1 = "AQAb8R"
 part2 = "N6IXJeO48VqhVgBE"  # Put your keys back into these parts
 part3 = "EqSbajmdTWPVj6tWz6mDDLjH2bW5Ziw"
 
-FULL_API_KEY = part1 + part2 + part3
+# The .strip() function wipes out any accidental hidden spaces or line breaks
+FULL_API_KEY = (part1 + part2 + part3).strip()
 
 # Advanced verification check
 if FULL_API_KEY and FULL_API_KEY.startswith("AQAb8R") and len(FULL_API_KEY) >= 39:
