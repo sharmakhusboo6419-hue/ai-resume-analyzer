@@ -11,11 +11,11 @@ import matplotlib.pyplot as plt
 # 🔒 SECURE API KEY CONFIGURATION (SPLIT METHOD)
 # ==========================================
 # Put the first few characters of your real key here
-part1 = "AQAb8R"  
+part1 = "AQAb8RN6LwrK"  
 # Put the middle part here
-part2 = "N6IXJeO" 
+part2 = "zmzAsK7jhRfbyEY" 
 # Put the remaining part here
-part3 = "48VqhVgBEqSbajmdTWPVj6tWz6mDDLjH2bW5Ziw"
+part3 = "Aq0x10Ym9h9rPKNMlc9zAkg"
 
 # The .strip() function wipes out any accidental hidden spaces or line breaks
 FULL_API_KEY = (part1 + part2 + part3).strip()
